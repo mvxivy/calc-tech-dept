@@ -1,6 +1,6 @@
 {
-  "name": "javascript-action",
-  "description": "GitHub Actions JavaScript Template",
+  "name": "calc-tech-dept-action",
+  "description": "Calc tech dept action",
   "version": "0.0.0",
   "author": "",
   "private": true,
