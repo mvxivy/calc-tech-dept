@@ -1,6 +1,7 @@
 import { readdirSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import * as core from '@actions/core'
 
 const rootDir = './src'
 
@@ -20,7 +21,7 @@ const matchQuery =
 const todoQuery = /TODO/g
 const tsIgnoreQuery = /@ts-ignore/g
 
-const main = async () => {
+const calcTechDept = async () => {
   console.time('Calculate tech dept')
   const queries = ['TODO', '@ts-ignore']
   const calcTodo = matchQuery(todoQuery)
@@ -43,11 +44,14 @@ const main = async () => {
     }
   }
 
+  const result = {}
   for (const query of queries) {
-    console.log(`Found ${query}: ${calculator[query].count}`)
+    result[query] = calculator[query].count
+    core.debug(`Found ${query}: ${calculator[query].count}`)
   }
 
   console.timeEnd('Calculate tech dept')
+  return result
 }
 
-main()
+export { calcTechDept }
