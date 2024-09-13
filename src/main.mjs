@@ -10,7 +10,14 @@ export async function run() {
   // const oktokit = createOctokit()
 
   try {
-    await calcTechDept()
+    const result = await calcTechDept()
+
+    // output result in table format to github comment
+    const table = Object.entries(result)
+      .map(([key, value]) => `| ${key} | ${value} |`)
+      .join('\n')
+    const comment = `## Tech Debt\n\n${table}`
+    core.setOutput('tech-debt', comment)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
