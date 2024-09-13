@@ -21,7 +21,7 @@ export async function run() {
       .map(([key, value]) => `| ${key} | ${value} |`)
       .join('\n')
 
-    const commentTitle = '### Tech Debt'
+    const commentTitle = '### Tech debt'
     const comment = `${commentTitle}\n\n| type | count |\n|---|---|\n${tableContent}`
     core.debug(comment)
 

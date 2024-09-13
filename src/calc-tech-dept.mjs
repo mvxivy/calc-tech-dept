@@ -18,9 +18,11 @@ const matchQuery =
   (content, prevMatches = 0) =>
     (content.match(query) ?? []).length + prevMatches
 
-const todoQuery = /TODO/g
-const fixmeQuery = /FIXME/g
-const tsIgnoreQuery = /@ts-ignore/g
+const createRegexByQuery = query =>
+  new RegExp(`\\/\\/.*${query}.*|\\/\\*[\\s\\S]*?${query}[\\s\\S]*?\\*\\/`, 'g')
+const todoQuery = createRegexByQuery('TODO')
+const fixmeQuery = createRegexByQuery('FIXME')
+const tsIgnoreQuery = createRegexByQuery('@ts-ignore')
 
 const calcTechDept = async () => {
   console.time('Calculate tech dept')
