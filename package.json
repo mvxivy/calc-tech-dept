@@ -1,20 +1,21 @@
 {
   "name": "calc-tech-dept-action",
   "description": "Calc tech dept action",
-  "version": "0.0.0",
-  "author": "",
+  "version": "1.0.0",
+  "author": "Maksim Ivanov <@mvxivy>",
   "private": true,
-  "homepage": "https://github.com/actions/javascript-action#readme",
+  "homepage": "https://github.com/actions/calc-tech-dept-action#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/actions/calc-tech-dept-action.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/actions/calc-tech-dept-action/issues"
   },
   "keywords": [
     "GitHub",
     "Actions",
+    "Calc tech dept",
     "JavaScript"
   ],
   "exports": {
@@ -39,30 +40,6 @@
   "eslintConfig": {
     "extends": "./.github/linters/.eslintrc.yml"
   },
-  "jest": {
-    "verbose": true,
-    "clearMocks": true,
-    "testEnvironment": "node",
-    "moduleFileExtensions": [
-      "js"
-    ],
-    "testMatch": [
-      "**/*.test.js"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "./src/**"
-    ]
-  },
   "dependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0"
@@ -72,12 +49,8 @@
     "@babel/eslint-parser": "^7.25.1",
     "@babel/preset-env": "^7.25.4",
     "@vercel/ncc": "^0.38.1",
-    "babel-preset-jest": "^29.6.3",
     "eslint": "^8.57.0",
     "eslint-plugin-github": "^5.0.1",
-    "eslint-plugin-jest": "^28.8.3",
-    "jest": "^29.7.0",
-    "make-coverage-badge": "^1.2.0",
     "prettier": "^3.3.3"
   }
 }
