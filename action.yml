@@ -2,6 +2,15 @@ name: 'Calculate tech dept'
 description: 'Calculate TODOs and @ts-ignore in your codebase'
 author: 'Maksim Ivanov <@mvxivy>'
 
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+  pull-request-number:
+    description: 'Pull request number'
+    required: false
+    default: ${{ github.event.number }}
+
 runs:
   using: node20
   main: dist/index.js
