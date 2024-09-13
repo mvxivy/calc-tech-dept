@@ -21,8 +21,8 @@ export async function run() {
       .map(([key, value]) => `| ${key} | ${value} |`)
       .join('\n')
 
-    const commentTitle = '### Tech debt'
-    const comment = `${commentTitle}\n\n| type | count |\n|---|---|\n${tableContent}`
+    const commentTitle = 'Tech debt'
+    const comment = `### ${commentTitle}\n\n| type | count |\n|---|---|\n${tableContent}`
     core.debug(comment)
 
     const updateResult = await findAndUpdateComment(
