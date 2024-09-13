@@ -19,16 +19,19 @@ const matchQuery =
     (content.match(query) ?? []).length + prevMatches
 
 const todoQuery = /TODO/g
+const fixmeQuery = /FIXME/g
 const tsIgnoreQuery = /@ts-ignore/g
 
 const calcTechDept = async () => {
   console.time('Calculate tech dept')
-  const queries = ['TODO', '@ts-ignore']
+  const queries = ['TODO', 'FIXME', '@ts-ignore']
   const calcTodo = matchQuery(todoQuery)
+  const calcFixme = matchQuery(fixmeQuery)
   const calcTsIgnore = matchQuery(tsIgnoreQuery)
 
   const calculator = {
     TODO: { count: 0, handler: calcTodo },
+    FIXME: { count: 0, handler: calcFixme },
     '@ts-ignore': { count: 0, handler: calcTsIgnore }
   }
 
